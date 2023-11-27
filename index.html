@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Maple AR</title>
+</head>
+<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.1.0/dist/aframe-extras.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene embedded arjs>
+    <a-assets>
+     
+      <a-asset-item id="bird" response-type="arraybuffer" src="assets/phoenix_bird.glb"></a-asset-item>
+      
+      <a-asset-item id="hip" response-type="arraybuffer" src="assets/hip_hop.glb"></a-asset-item>
+      
+    </a-assets>
+
+    <!--<a-marker preset="hiro"> -->
+    <a-marker 
+      type="pattern" 
+      preset="custom" 
+      url="pattern-hf.patt">
+     
+      <a-entity 
+        gltf-model="#bird" 
+        scale="0.005 0.005 0.005" animation-mixer="clip:Take 001; loop:2; timeScale:2; crossFadeDuration:5">
+      </a-entity>
+      
+      <a-entity 
+        gltf-model="#hip" 
+        scale="0.02 0.02 0.02" animation-mixer="clip:mixamo.com; loop:2; timeScale:1; crossFadeDuration:5">
+      </a-entity>
+      
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
